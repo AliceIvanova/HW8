@@ -18,7 +18,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 @Tag("SMOKE")
 @DisplayName("При смене языка Rus Eng, должно меняться верхнее меню")
-public class ParamEnRusDisplayTest {
+public class MenuEnRusDisplayTest {
   @BeforeAll
   static void setUp() {
     Configuration.browserSize = "1920x1080";
@@ -59,6 +59,7 @@ public class ParamEnRusDisplayTest {
     $$(".menu-search-wrap").filter(visible)
       .shouldHave(texts(expectedButtons));
   }
+
 
   @AfterAll
   @Tag("SMOKE")
