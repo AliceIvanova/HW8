@@ -18,13 +18,8 @@ import static com.codeborne.selenide.Selenide.*;
 public class SearchButtonEngRusTest {
   @Tag("SMOKE")
   @DisplayName("При смене языка Rus Eng, должно меняться верхнее меню")
-  public static class ParamEnRusDisplayTest {
-    @BeforeAll
-    static void setUp() {
-      Configuration.browserSize = "1920x1080";
-      Configuration.pageLoadStrategy = "eager";
-      open("https://www.rzd.ru/");
-    }
+  public static class ParamEnRusDisplayTest extends TestBase {
+
 
     @EnumSource(Language.class)
     @ParameterizedTest
@@ -33,14 +28,6 @@ public class SearchButtonEngRusTest {
       $$("li.locale-switch__li").find(text(language.name())).click();
       $$("#rzd-search-widget").filter(visible)
         .shouldHave(texts(language.s));
-    }
-
-    @AfterAll
-    @Tag("SMOKE")
-    static void turnDown() {
-      closeWebDriver();
-      //  Selenide.clearBrowserLocalStorage();
-      Selenide.clearBrowserCookies();
     }
   }
 }

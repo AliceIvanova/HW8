@@ -16,15 +16,11 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
+
 @Tag("SMOKE")
 @DisplayName("При смене языка Rus Eng, должно меняться верхнее меню")
-public class MenuEnRusDisplayTest {
-  @BeforeAll
-  static void setUp() {
-    Configuration.browserSize = "1920x1080";
-    Configuration.pageLoadStrategy = "eager";
-    open("https://www.rzd.ru/");
-  }
+public class MenuEnRusDisplayTest extends TestBase{
+
 
   static Stream<Arguments> rzdSiteShouldDisplayCorrectText() {
     return Stream.of(
@@ -61,11 +57,5 @@ public class MenuEnRusDisplayTest {
   }
 
 
-  @AfterAll
-  @Tag("SMOKE")
-  static void turnDown() {
-    closeWebDriver();
-  //  Selenide.clearBrowserLocalStorage();
-    Selenide.clearBrowserCookies();
-  }
+
 }
