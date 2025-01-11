@@ -18,13 +18,11 @@ public class TestBase {
     open("https://www.rzd.ru/");
   }
   @AfterEach
-  @Tag("SMOKE")
   void turnDown() {
     closeWebDriver();
   }
 
   @AfterAll
-  @Tag("SMOKE")
   static void clearCookies() {
 
     //  Selenide.clearBrowserLocalStorage();
